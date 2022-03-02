@@ -9,7 +9,7 @@ cc -Wall -Wextra -O3 -g0 main.cpp
 
 The following (artificial) limits are imposed:
 1. Use a single thread. Whilst the code can be parallelised with ease, the task is to see what optimisations can be applied to the table generation.
-2. Generate the table. The quickest is obviously including the pre-generated table, but that defeats the task.
+2. Generate the table. The ultimate unbeatable optimisation is to simply include the pre-generated table, but that defeats the task.
 3. It must compile with Clang/GCC/MSVC. Again, an easy route would be compiling with [`ispc`](//ispc.github.io) or similar SPMD compilers, but this would also defeat the task. It _would_ be interesting to compare the results though.
 4. No using OpenMP's `#pragma omp parallel` or similar libraries or preprocessors.
 
