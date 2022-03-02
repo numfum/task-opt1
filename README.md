@@ -2,16 +2,21 @@
 
 The task is optimise the `create_etc1_to_dxt1_6_conversion_table()` table generation function, showing timings before and after.  Example timings for comparison:
 
-| Machine             | OS            | CPU           | Compiler  | Time  |
-|---------------------|---------------|---------------|-----------|-------|
-| Mac Pro (Late 2013) | Windows 10    | Intel Xeon E5 | MSVC 2019 | 460ms |
-| Mac Pro (Late 2013) | macOS Big Sur | Intel Xeon E5 | Clang 13  | 334ms |
-| Talos II            | Debian Buster | IBM Power9    | GCC 10    | 302ms |
+| Machine             | OS            | CPU           | Compiler | Time  |
+|---------------------|---------------|---------------|----------|-------|
+| Mac Pro (Late 2013) | Windows 10    | Intel Xeon E5 | MSVC 19  | 410ms |
+| Mac Pro (Late 2013) | macOS Big Sur | Intel Xeon E5 | Clang 13 | 334ms |
+| Talos II            | Debian Buster | IBM Power9    | GCC 10   | 302ms |
 
 For macOS/Linux build with:
 ```
 cc -Wall -Wextra -O3 -g0 main.cpp
 ```
+For Windows, in a Visual Studio Command Prompt, build with:
+```
+cl /wd4576 /W3 /O2 main.cpp
+```
+Warning C4576 is for the initialiser list. Feel free to tweak the compiler flags, `-flto` or `/GL` for example (but both optimised and unoptimised runs should be compared with the same flags).
 
 The following (artificial) limits are imposed:
 1. Use a single thread. Whilst the code can be parallelised with ease, the task is to see what optimisations can be applied to the table generation.
