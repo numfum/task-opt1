@@ -13,6 +13,6 @@ The following (artificial) limits are imposed:
 3. It must compile with Clang/GCC/MSVC. Again, an easy route would be compiling with [`ispc`](//ispc.github.io) or similar SPMD compilers, but this would also defeat the task. It _would_ be interesting to compare the results though.
 4. No using OpenMP's `#pragma omp parallel` or similar libraries or preprocessors.
 
-Any questions, feel free to ask. SIMD optimisations can be for any architecture, the interesting point being the before and after timings. We have implementations for SSE4.1, Neon and Wasm.
+Any questions, feel free to ask. Any SIMD optimisations can be for an architecture or your choice, the interesting point being the before and after timings. We have implementations for SSE4.1, Neon and Wasm.
 
 This is a snippet of code from [Basis Universal](//github.com/BinomialLLC/basis_universal) (copyright 2019-2021 Binomial LLC, released under an Apache 2.0 license). The [original code](//github.com/BinomialLLC/basis_universal/blob/77b7df8e5df3532a42ef3c76de0c14cc005d0f65/transcoder/basisu_transcoder.cpp#L1178-L1253) is extracted from the ETC1S to DXT transcoder.
