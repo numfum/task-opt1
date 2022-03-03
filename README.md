@@ -10,7 +10,7 @@ The task is optimise the `create_etc1_to_dxt1_6_conversion_table()` table genera
 |---------------------|----------------|---------------|----------|-------|
 | Mac Pro (Late 2013) | Windows 10     | Intel Xeon E5 | MSVC 19  | 408ms |
 | Mac Pro (Late 2013) | macOS Big Sur  | Intel Xeon E5 | Clang 13 | 334ms |
-| Talos II            | Debian Buster  | IBM Power9    | GCC 10   | 302ms |
+| Talos II            | Debian Buster  | IBM Power9    | GCC 10   | 289ms |
 | MacBook Pro (2021)  | macOS Monterey | Apple M1 Max  | Clang 13 | 158ms |
 
 The timings here are to give an idea on what to expect on different architectures (and also compilers and OSes).
@@ -23,9 +23,11 @@ cc -Wall -Wextra -O3 -g0 main.cpp
 ```
 For Windows, in a Visual Studio Command Prompt, build with:
 ```
-cl /wd4576 /W3 /Ox main.cpp
+cl /W3 /wd4576 /Ox main.cpp
 ```
-Feel free to tweak the compiler flags, `-flto` or `/GL` for example (but both optimised and unoptimised runs should be compared with the same flags). For Windows warning C4576 is for the initialiser list.
+Feel free to tweak the compiler flags, `-flto` or `/GL` for example, or target a specific CPU with `-mcpu=power9`, `/arch:AVX2`, etc., but both optimised and unoptimised runs should be compared with the same flags.
+
+(For Windows warning `C4576` is for the initialiser list.)
 
 ### Limits
 
