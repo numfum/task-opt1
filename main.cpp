@@ -110,6 +110,8 @@ static void create_etc1_to_dxt1_6_conversion_table()
 	} // inten
 }
 
+//******************************** Entry Point ********************************/
+
 /**
  * Tests the generation and benchmarks it.
  */
