@@ -25,9 +25,13 @@ For Windows, in a Visual Studio Command Prompt, build with:
 ```
 cl /W3 /wd4576 /Ox main.cpp
 ```
+For Emscripten build with:
+```
+emcc -Wall -Wextra -O3 -g0 -s SINGLE_FILE=1 main.cpp -o out.html
+```
 Feel free to tweak the compiler flags, `-flto` or `/GL` for example, or target a specific CPU with `-mcpu=power9`, `/arch:AVX2`, etc., but both optimised and unoptimised runs should be compared with the same flags.
 
-(For Windows warning `C4576` is for the initialiser list.)
+(The Windows/MSVC warning `C4576` is for the initialiser list syntax.)
 
 ### Limits
 

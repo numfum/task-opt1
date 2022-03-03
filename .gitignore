@@ -1,4 +1,7 @@
 .DS_Store
 a.out
 *.obj
-main.exe
+*.exe
+*.html
+*.js
+*.wasm
