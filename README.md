@@ -42,4 +42,8 @@ The following limits are imposed:
 4. No using OpenMP's `#pragma omp parallel` or similar libraries or preprocessors.
 5. The before and after comparison should be on the same hardware under the same conditions and with the same compiler (otherwise, from the table above, a 2.5x speed-up can simply be had by using a newer machine).
 
-Any questions, feel free to ask. Any SIMD optimisations can be for an architecture or your choice, the interesting point being the before and after timings. We have implementations for SSE4.1, Neon and Wasm.
+Any SIMD optimisations can be for an architecture or your choice, the interesting point being the before and after timings. We have implementations for SSE4.1, Neon and Wasm. Any questions, feel free to ask.
+
+### Background
+
+The original code is a greedy algorithm to [determine the best colour matches](//richg42.blogspot.com/2018/06/etc1s-texture-format-encoding.html) for a given ETC1S block when transcoding to DXT. In BasisU these matches are generated ahead of time and stored as tables (5- and 6-bit tables for DXT1), so this code is only ever run to if the tables need regenerating. When assessing BasisU we looked at various ways of reducing the binary size, and generating the tables at runtime was considered. During the process it became a fun distraction for us in-house as a way of flexing optimisation skills amongst colleagues!
