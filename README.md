@@ -4,7 +4,7 @@ This is a programming task given to candidates interviewing at [Numfum GmbH](//w
 
 ### The Task
 
-The task is optimise the `create_etc1_to_dxt1_6_conversion_table()` table generation function (in [main.cpp](//github.com/numfum/task-opt1/blob/main/main.cpp), showing timings before and after. Example timings for comparison:
+The task is to optimise the `create_etc1_to_dxt1_6_conversion_table()` table generation function (in [main.cpp](//github.com/numfum/task-opt1/blob/main/main.cpp), showing timings before and after. Example timings for comparison:
 
 | Machine             | OS             | CPU           | Compiler | Time  |
 |---------------------|----------------|---------------|----------|-------|
