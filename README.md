@@ -4,7 +4,7 @@ This is a programming task given to candidates interviewing at [Numfum GmbH](//w
 
 ### The Task
 
-The task is to optimise the table generation in `create_etc1_to_dxt1_6_conversion_table()` (see [main.cpp](//github.com/numfum/task-opt1/blob/main/main.cpp), showing timings before and after. Example timings for comparison:
+The task is to optimise the table generation in `create_etc1_to_dxt1_6_conversion_table()` (in [main.cpp](//github.com/numfum/task-opt1/blob/main/main.cpp)), showing timings before and after. Example timings from the unoptimised code for comparison:
 
 | Machine             | OS             | CPU           | Compiler | Time  |
 |---------------------|----------------|---------------|----------|-------|
@@ -13,7 +13,7 @@ The task is to optimise the table generation in `create_etc1_to_dxt1_6_conversio
 | Talos II            | Debian Buster  | IBM Power9    | GCC 10   | 289ms |
 | MacBook Pro (2021)  | macOS Monterey | Apple M1 Max  | Clang 13 | 158ms |
 
-The timings here are to give an idea on what to expect on different architectures (and also compilers and OSes).
+These numbers should give you an idea of what to expect on different architectures (and also compilers and OSes).
 
 ### Building
 
@@ -42,7 +42,7 @@ The following limits are imposed:
 4. No using OpenMP's `#pragma omp parallel` or similar libraries or preprocessors.
 5. The before and after comparison should be on the same hardware under the same conditions and with the same compiler (otherwise, from the table above, a 2.5x speed-up can simply be had by using a newer machine).
 
-Any SIMD optimisations can be for an architecture or your choice, the interesting point being the before and after timings. We have implementations for SSE4.1, Neon and Wasm. Any questions, feel free to ask.
+Any SIMD optimisations can be for an architecture of your choice, the interesting point being the before and after timings. We have implementations for SSE4.1, Neon and Wasm. Any questions, feel free to ask.
 
 ### Background
 
