@@ -37,6 +37,21 @@ static const etc1_to_dxt1_56_solution known[32 * 8 * NUM_ETC1_TO_DXT1_SELECTOR_M
 #include "basisu_transcoder_tables_dxt1_6.inc"
 };
 
+/**
+ * Helper to compare two tables to see if they match.
+ */
+static bool verifyTable(const etc1_to_dxt1_56_solution* a, const etc1_to_dxt1_56_solution* b) {
+	for (unsigned n = 0; n < 32 * 8 * NUM_ETC1_TO_DXT1_SELECTOR_MAPPINGS * NUM_ETC1_TO_DXT1_SELECTOR_RANGES; n++) {
+		if (a->m_hi != b->m_hi || a->m_lo != b->m_lo || a->m_err != b->m_err) {
+			printf("Failed with n = %d\n", n);
+			return false;
+		}
+		a++;
+		b++;
+	}
+	return true;
+}
+
 //************************ Optimisation Task Goes Here ************************/
 
 /**
@@ -118,7 +133,9 @@ static void create_etc1_to_dxt1_6_conversion_table()
 int main(int /*argc*/, char* /*argv*/[]) {
 	// Run this once and compare the result to the known table
 	create_etc1_to_dxt1_6_conversion_table();
-    assert(memcmp(result, known, sizeof(known)) == 0);
+	if (!verifyTable(result, known)) {
+		printf("Generated results don't match known values\n");
+	}
     
     // Perform multiple runs and take the best time
     unsigned best = UINT32_MAX;
