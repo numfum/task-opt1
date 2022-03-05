@@ -29,6 +29,11 @@ For Emscripten build with:
 ```
 emcc -Wall -Wextra -O3 -g0 -s SINGLE_FILE=1 main.cpp -o out.html
 ```
+Alternatively you can use CMake:
+```
+cmake -B out -DCMAKE_BUILD_TYPE=Release
+cmake --build out
+```
 Feel free to tweak the compiler flags, `-flto` or `/GL` for example, or target a specific CPU with `-mcpu=power9`, `/arch:AVX2`, etc., but both optimised and unoptimised runs should be compared with the same flags.
 
 (The Windows/MSVC warning `C4576` is for the initialiser list syntax.)
