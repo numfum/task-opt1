@@ -44,7 +44,7 @@ cmake --build out --config Release
 ```
 And also Emscripten:
 ```
-emcmake cmake --build out --config Release
+emcmake cmake -B out -DCMAKE_BUILD_TYPE=Release
 cmake --build out --config Release
 ```
 Or generate a Visual Studio solution, for example:
