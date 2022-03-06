@@ -1,4 +1,4 @@
-name: Emscripten
+name: CMake Emscripten
 
 on: [push]
 
