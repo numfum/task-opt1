@@ -29,10 +29,15 @@ For Emscripten build with:
 ```
 emcc -Wall -Wextra -O3 -g0 -s SINGLE_FILE=1 main.cpp -o out.html
 ```
-Alternatively you can use CMake:
+Alternatively you can use CMake for macOS, Linux and Windows:
 ```
 cmake -B out -DCMAKE_BUILD_TYPE=Release
-cmake --build out
+cmake --build out --config Release
+```
+And also Emscripten:
+```
+emcmake cmake --build out --config Release
+cmake --build out --config Release
 ```
 Feel free to tweak the compiler flags, `-flto` or `/GL` for example, or target a specific CPU with `-mcpu=power9`, `/arch:AVX2`, etc., but both optimised and unoptimised runs should be compared with the same flags.
 
