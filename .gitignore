@@ -6,4 +6,7 @@ a.out
 *.js
 *.wasm
 
+.vs/
 out/
+
+cmake_install.cmake

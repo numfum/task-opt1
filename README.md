@@ -29,7 +29,13 @@ For Emscripten build with:
 ```
 emcc -Wall -Wextra -O3 -g0 -s SINGLE_FILE=1 main.cpp -o out.html
 ```
-Alternatively you can use CMake for macOS, Linux and Windows:
+Feel free to tweak the compiler flags, `-flto` or `/GL` for example, or target a specific CPU with `-mcpu=power9`, `/arch:AVX2`, etc., but both optimised and unoptimised runs should be compared with the same flags.
+
+(The Windows/MSVC warning `C4576` is for the initialiser list syntax.)
+
+### CMake
+
+Alternatively you can use CMake to perform command-line builds for macOS, Linux and Windows:
 ```
 cmake -B out -DCMAKE_BUILD_TYPE=Release
 cmake --build out --config Release
@@ -39,9 +45,13 @@ And also Emscripten:
 emcmake cmake --build out --config Release
 cmake --build out --config Release
 ```
-Feel free to tweak the compiler flags, `-flto` or `/GL` for example, or target a specific CPU with `-mcpu=power9`, `/arch:AVX2`, etc., but both optimised and unoptimised runs should be compared with the same flags.
-
-(The Windows/MSVC warning `C4576` is for the initialiser list syntax.)
+Or generate a Visual Studio solution, for example:
+```
+mkdir out
+cd out
+cmake .. -G "Visual Studio 16 2019"
+task-opt1.sln
+```
 
 ### Limits
 
