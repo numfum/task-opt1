@@ -1,0 +1,32 @@
+name: Emscripten
+
+on: [push]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        type: [Debug, Release]
+
+    env:
+      BUILD_TYPE: ${{ matrix.type }}
+      BUILD_PATH: ${{ github.workspace }}/build/web/${{ matrix.type }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: mymindstorm/setup-emsdk@v10
+
+    - name: Test Emscripten
+      run: emcc -v
+
+    - name: Configure CMake
+      run: emcmake cmake -B ${{ env.BUILD_PATH }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
+
+    - name: Build
+      run: cmake --build ${{ env.BUILD_PATH }} --config ${{ env.BUILD_TYPE }}
