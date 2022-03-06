@@ -1,0 +1,28 @@
+name: Mac/Win/Linux
+
+on: [push]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        type: [Debug, Release]
+
+    env:
+      BUILD_TYPE: ${{ matrix.type }}
+      BUILD_PATH: ${{ github.workspace }}/build/${{ matrix.os }}/${{ matrix.type }}
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Configure CMake
+      run: cmake -B ${{ env.BUILD_PATH }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
+
+    - name: Build
+      run: cmake --build ${{ env.BUILD_PATH }} --config ${{ env.BUILD_TYPE }}
