@@ -1,6 +1,6 @@
 # Optimisation Task #1
 
-[![CMake desktop workflow](/actions/workflows/cmake-desktop.yml/badge.svg)](/actions/workflows/cmake-desktop.yml) [![CMake Emscripten workflow](/actions/workflows/cmake-emscripten.yml/badge.svg)](/actions/workflows/cmake-emscripten.yml)
+[![CMake desktop workflow](/../../actions/workflows/cmake-desktop.yml/badge.svg)](/../../actions/workflows/cmake-desktop.yml) [![CMake Emscripten workflow](/../../actions/workflows/cmake-emscripten.yml/badge.svg)](/../../actions/workflows/cmake-emscripten.yml)
 
 This is a programming task given to candidates interviewing at [Numfum GmbH](//www.numfum.com/jobs_en/) to complete from home, taking as long as they need. The code is a snippet from [Basis Universal](//github.com/BinomialLLC/basis_universal) (copyright 2019-2021 Binomial LLC, released under an Apache 2.0 license). The [original code](//github.com/BinomialLLC/basis_universal/blob/77b7df8e5df3532a42ef3c76de0c14cc005d0f65/transcoder/basisu_transcoder.cpp#L1178-L1253) is extracted from the ETC1S to DXT transcoder and turned into this standalone sample.
 
