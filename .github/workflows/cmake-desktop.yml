@@ -19,7 +19,7 @@ jobs:
       BUILD_PATH: ${{ github.workspace }}/build/${{ matrix.os }}/${{ matrix.type }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - name: Configure CMake
       run: cmake -B ${{ env.BUILD_PATH }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
